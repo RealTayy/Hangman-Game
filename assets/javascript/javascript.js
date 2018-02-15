@@ -42,7 +42,7 @@ function startHangManGame() {
         if (!hangManGame.hasWonOrLost) {
             // Player tries to guess a letter
             if (hangManGame.guessedLetters.includes(e.key)) {
-                // Code that updates the helpMessage to "ALREADY GUESSED BRAH SRRY LOL"
+                document.getElementById('help-msg').innerHTML = '\'' + e.key + '\' has already been guessed. Try a different Letter!';
                 console.log('Letter already guessed brah...');
             } else {
                 hangManGame.guessedLetters.push(e.key);
@@ -50,11 +50,11 @@ function startHangManGame() {
                 console.log(hangManGame.guessedLetters);
                 if (hangManGame.correctLetters.includes(e.key)) {
                     console.log('You guessed correctly');
-                    // Messages that says wowza you guessed right
+                    document.getElementById('help-msg').innerHTML = 'Nice! \'' + e.key + '\' is in the word!' ;
                 } else {
                     hangManGame.incorrectGuesses++
                     console.log('You guessed incorrectly: ' + hangManGame.incorrectGuesses);
-                    // Messages that says srry you guessed wrong
+                    document.getElementById('help-msg').innerHTML = '\'' + e.key + '\' is not a correct letter :('
                 }
             }
             if (checkIfWon()) {
@@ -71,7 +71,7 @@ function startHangManGame() {
                 console.log('Game goes on...');
             }
         } else {
-            console.log('Game is already over bro...')
+            document.getElementById('help-msg').innerHTML = 'This game is already over... click "Start New Game" to play again!'
         }
     };
 
