@@ -1,0 +1,147 @@
+body {
+    background-color: #F3F7FA;
+}
+
+#header {    
+    width: 100%;      
+}
+
+.border-box {
+    border: 5px solid #333;
+}
+
+#dog-peek {
+    position: relative;
+    top: 3px;    
+}
+
+#page-banner {
+    background-color: #333;
+    border-bottom: none;
+
+    color: #fff;
+    text-align: center;
+    line-height: 80px;
+    font-size: 50px;      
+}
+
+.wrapper {
+    width: 960px;    
+    margin: auto;        
+}
+
+#content {    
+}
+
+#left-section {
+    float: left;
+    width: 452.5px;
+    height: 340px;
+    padding: 10px;
+
+    background-color: #fff;
+    border-width: 0 2.5px 0 5px;
+    line-height: 18px;
+}
+
+#right-section {
+    float: right;
+    width: 462.5px;
+    height: 350px;
+    padding: 5px;
+
+    background-color: #fff;
+    border-width: 0 5px 0 2.5px;
+
+    font-size: 20px;
+}
+
+#help-msg {
+    height: 40px;
+    background-color: #333;
+
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#start-button {
+    padding: 3px;
+    background-color: #333;
+    width: 180px;
+    margin: auto;        
+    margin-top: 10px;
+    text-align: center;
+    height: 25px;
+    font-size: 20px;
+    line-height: 25px;
+
+    color: #fff;
+}
+
+.counter {    
+}
+
+#win-counter {
+    width: 45%;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#lose-counter {
+    width: 45%;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#wrong-counter {
+    width: 100%;
+    text-align: center;
+}
+
+.bord {    
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000;
+}
+
+#word-title {
+    text-align: center;
+    margin: 30px 0 10px 0;
+}
+
+#word-blanks {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+#hint {
+    text-align: center;
+    height: 45px;
+}
+
+#wrong-counter {
+    margin: 10px 0 15px 0;
+}
+
+#guessed-title {
+    text-align: center;
+}
+
+#guessed-arr {
+    margin-top: 7px;
+    padding-left: 20px;
+}
+
+.title {
+    font-weight: bold;
+}

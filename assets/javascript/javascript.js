@@ -13,24 +13,23 @@ let hangManGame = {
         console.log('All Variables reset!')
     },
 
-    genDogName: function () {
-        // console.log('Generating Dog Name');
+    genDogName: function () {        
         let dogList = ['yorkshire_terrier', 'maltese', 'papillon', 'bulldog', 'labrador_retriever', 'german_shepherd', 'chihuahua', 'siberian_husky', 'poodle', 'golden_retriever'];
         return dogList[Math.floor(Math.random() * 10)];
     },
 
     genDogHint: function (dogName) {        
         let dogHints = {
-            yorkshire_terrier: 'hint about yorkshire_terrier',
-            maltese: 'hint about maltese',
-            papillon: 'hint about papillo',
-            bulldog: 'hint about bulldog',
-            labrador_retriever: 'hint about labrador_retriever',
-            german_shepherd: 'hint about german_shepherd',
-            chihuahua: 'hint about chihuahua',
-            siberian_husky: 'hint about siberian_husky',
-            poodle: 'hint about poodle',
-            golden_retriever: 'hint about golden_retriever'
+            yorkshire_terrier: 'This dog\'s orgins started in Yorkshire, England',
+            maltese: 'This dog\'s name comes from the mediterranean island of Malta',
+            papillon: 'This dog\'s ears are said resemble butterflys',
+            bulldog: 'This dog is known for being muscular, hefty with a wrinkled face and a pushed in nose',
+            labrador_retriever: 'This is one of the most popular dogs in the US and make greate guide dogs',
+            german_shepherd: 'If this dog had a job it would be a police officer',
+            chihuahua: 'This taco bell dog was this kind of dog',
+            siberian_husky: 'This dog loves the cold weather',
+            poodle: 'This fancy looking dog is ranked the secodn most intelligent dog breed',
+            golden_retriever: 'The famous dog from Air Bud was this kind of dog'
         }
         return dogHints[dogName];
     },
@@ -39,7 +38,6 @@ let hangManGame = {
 function startHangManGame() {
     hangManGame.resetVariables();
     // Draw Starting Screen?
-
     document.onkeypress = (e) => {
         if (!hangManGame.hasWonOrLost) {
             // Player tries to guess a letter
@@ -59,7 +57,6 @@ function startHangManGame() {
                     // Messages that says srry you guessed wrong
                 }
             }
-
             if (checkIfWon()) {
                 console.log('GAME HAS BEEN WON');
                 hangManGame.hasWonOrLost = true;

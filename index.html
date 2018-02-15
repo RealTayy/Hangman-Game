@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Hangman: Dog Edition</title>
 
     <!-- Load CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="wrapper">
-            <h1 id="page-banner">
+            <img id="dog-peek" src="./assets/images/banner-peek.png" />
+            <h1 id="page-banner" class="border-box">
                 Hangman: Dog Edition!
             </h1>
         </div>
@@ -23,20 +24,44 @@
 
     <section id="content">
         <div class="wrapper">
-            <div class="row">
-                <div id="left section">
-                    Instructions and Game Display
+            <div class="row clearfix">
+                <div id="left-section" class="border-box">
+                    <p>Instructions:</p>
+                    <p>Hello! Welcome to the most intense game you'll ever play in your life!</p>
+                    <p>The life of an innocent person hangs on your ability to guess a word...</p>
+                    </br>
+                    <p>No Pressure! Here are the rules:</p>
+                    <p>> A word will be chosen at random. It could be anything!</p>
+                    <p>> Luckily for you all these words will be a breed of a dog</p>
+                    <p>> You'll be given a some blanks. Each blank represents a letter</p>
+                    <p>> You will guess a letter and if it's in the word it will be revealed!</p>
+                    <p>> If the letter isn't in the word. You'll get one step closer to losing</p>
+                    <p>> Guess all the letters correctly and you win! And our friend is free!</p>
+                    <p>> Guess enough letters wrong... and say goodbye to our guy :(</p>
+                    </br>
+                    <p>Ready? Click on "Start New Game" to get started!</p>
+
                 </div>
-                <div id="right section">
-                    Game Info
-                    <div id='start-button'>Start Game!</div>
+                <div id="right-section" class="border-box">
+                    <div id='start-button' class="title">Start New Game</div>
+                    <div id="win-counter" class="counter">Win: 0</div>
+                    <div id="lose-counter" class="counter">Lose: 0</div>
+                    <div class="clearfix bord"></div>
+                    <div id="word-title" class="title">Current Word</div>
+                    <div id="word-blanks"> _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </div>
+                    <div id="hint" class="bord">Hint: generic hint goes here </div>
+                    <div id="wrong-counter" class="bord title">Wrong Guesses Left: 7</div>
+                    <div id="guessed-title" class="title"> Guessed Letters</div>
+                    <div id="guessed-arr">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
                 </div>
             </div>
             <div class="row">
-                Maybe add list of letters here... maybe...
+                <div id="help-msg">
+                    This is the helpful message!
+                </div>
             </div>
         </div>
-    </section>    
+    </section>
 
     <!-- Load Javascript -->
     <script type="text/javascript" src="./assets/javascript/javascript.js"></script>
