@@ -24,7 +24,7 @@ let hangManGame = {
             maltese: 'This dog\'s name comes from the mediterranean island of Malta',
             papillon: 'This dog\'s ears are said resemble butterflys',
             bulldog: 'This dog is known for being muscular, hefty with a wrinkled face and a pushed in nose',
-            labrador_retriever: 'This is one of the most popular dogs in the US and make greate guide dogs',
+            labrador_retriever: 'This is one of the most popular dogs in the US and make great guide dogs',
             german_shepherd: 'If this dog had a job it would be a police officer',
             chihuahua: 'This taco bell dog was this kind of dog',
             siberian_husky: 'This dog loves the cold weather',
@@ -35,7 +35,7 @@ let hangManGame = {
     },
 };
 
-function startHangManGame() {
+function startHangManGame() {    
     hangManGame.resetVariables();
     helpMessage = document.getElementById('help-msg');
     helpMessage.innerHTML = "Alright let's get started! Guess a letter and I'll see if it's in my word..."
@@ -63,14 +63,12 @@ function startHangManGame() {
                 console.log('GAME HAS BEEN WON');
                 hangManGame.hasWonOrLost = true;
                 hangManGame.winCounter++;
-                helpMessage.innerHTML = 'You WON! You did it! You guessed the correct word! Click "Start New Game" to play again!';
-                // Draw Win Screen
+                helpMessage.innerHTML = 'You WON! You did it! You guessed the correct word! Click "Start New Game" to play again!';                
             } else if (checkIfLost()) {
                 console.log('GAME HAS BEEN LOST');
                 hangManGame.hasWonOrLost = true;
                 hangManGame.loseCounter++;
-                helpMessage.innerHTML = 'You lost :( The correct word was ' + hangManGame.curDog + '. Click "Start New Game" to play again!';
-                // Draw Lose Screen
+                helpMessage.innerHTML = 'You lost :( The correct word was ' + hangManGame.curDog + '. Click "Start New Game" to play again!';                
             } else {
                 console.log('Game goes on...');
             }
@@ -130,7 +128,6 @@ function startHangManGame() {
     function drawWinLose() {
         document.getElementById('win-counter').innerHTML = "Win: " + hangManGame.winCounter;
         document.getElementById('lose-counter').innerHTML = "Lose: " + hangManGame.loseCounter;
-
     };
 
     function drawPicture() {
@@ -143,6 +140,12 @@ function startHangManGame() {
 
     function drawDog() {
         document.getElementById('left-section').innerHTML = '<img src = "./assets/images/' + hangManGame.curDog + '.png"/> '
+        playBark();
+    }
+
+    function playBark() {
+        var sound = new Audio('./assets/sounds/borkbork.mp3');
+        sound.play();
     }
 };
 
