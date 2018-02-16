@@ -114,10 +114,10 @@ body {
 
 #word-blanks {
     text-align: center;
-    font-size: 23px;
+    font-size: 22px;
     margin-bottom: 15px;
     font-family: 'Roboto Mono', monospace;
-    line-height: 23px;
+    line-height: 22px;
 }
 
 #hint {

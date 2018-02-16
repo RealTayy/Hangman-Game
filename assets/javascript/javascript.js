@@ -28,7 +28,7 @@ let hangManGame = {
             german_shepherd: 'If this dog had a job it would be a police officer',
             chihuahua: 'This taco bell dog was this kind of dog',
             siberian_husky: 'This dog loves the cold weather',
-            poodle: 'This fancy looking dog is ranked the secodn most intelligent dog breed',
+            poodle: 'This fancy looking dog is ranked the second most intelligent dog breed',
             golden_retriever: 'The famous dog from Air Bud was this kind of dog'
         }
         return dogHints[dogName];
@@ -75,8 +75,6 @@ function startHangManGame() {
                 console.log('Game goes on...');
             }
             drawEverything();
-
-
         };
     };
 
@@ -96,6 +94,7 @@ function startHangManGame() {
         drawHint();
         drawWord();
         drawWinLose();
+        drawPicture();
     };
 
     function drawGuessedLetters() {
@@ -133,6 +132,18 @@ function startHangManGame() {
         document.getElementById('lose-counter').innerHTML = "Lose: " + hangManGame.loseCounter;
 
     };
+
+    function drawPicture() {
+        if (checkIfWon()) {
+            drawDog();
+        } else {
+            document.getElementById('left-section').innerHTML = '<img src = "./assets/images/wrong' + hangManGame.incorrectGuesses + '.png"/> ';
+        }
+    }
+
+    function drawDog() {
+        document.getElementById('left-section').innerHTML = '<img src = "./assets/images/' + hangManGame.curDog + '.png"/> '
+    }
 };
 
 // This makes the Start Button start a new game
