@@ -63,20 +63,20 @@ function startHangManGame() {
                 console.log('GAME HAS BEEN WON');
                 hangManGame.hasWonOrLost = true;
                 hangManGame.winCounter++;
-                helpMessage.innerHTML = 'You WON! You did it! You guessed the correct word!';
+                helpMessage.innerHTML = 'You WON! You did it! You guessed the correct word! Click "Start New Game" to play again!';
                 // Draw Win Screen
             } else if (checkIfLost()) {
                 console.log('GAME HAS BEEN LOST');
                 hangManGame.hasWonOrLost = true;
                 hangManGame.loseCounter++;
-                helpMessage.innerHTML = 'Oh no! You lost... The correct word was ' + hangManGame.curDog;
+                helpMessage.innerHTML = 'You lost :( The correct word was ' + hangManGame.curDog + '. Click "Start New Game" to play again!';
                 // Draw Lose Screen
             } else {
                 console.log('Game goes on...');
             }
             drawEverything();
-        } else {
-            helpMessage = 'This game is already over... click "Start New Game" to play again!'
+
+
         };
     };
 
@@ -118,8 +118,8 @@ function startHangManGame() {
         let word = document.getElementById('word-blanks');
         word.innerHTML = '';
         for (let i = 0; i < dogName.length; i++) {
-            if (dogName.charAt(i) == '_') {                
-                word.innerHTML += "\xa0\xa0\xa0";
+            if (dogName.charAt(i) == '_') {
+                word.innerHTML += "\xa0\xa0";
             } else if (hangManGame.guessedLetters.includes(dogName.charAt(i))) {
                 word.innerHTML += (dogName.charAt(i) + " ").toUpperCase();
             } else {

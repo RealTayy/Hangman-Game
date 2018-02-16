@@ -30,9 +30,6 @@ body {
     margin: auto;        
 }
 
-#content {    
-}
-
 #left-section {
     float: left;
     width: 452.5px;
@@ -86,9 +83,6 @@ body {
     color: #fff;
 }
 
-.counter {    
-}
-
 #win-counter {
     width: 45%;
     float: left;
@@ -120,8 +114,10 @@ body {
 
 #word-blanks {
     text-align: center;
-    font-size: 25px;
+    font-size: 23px;
     margin-bottom: 15px;
+    font-family: 'Roboto Mono', monospace;
+    line-height: 23px;
 }
 
 #hint {
