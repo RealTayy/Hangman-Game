@@ -127,6 +127,7 @@ body {
 #hint {
     text-align: center;
     height: 45px;
+    border: 1px solid transparent;
 }
 
 #wrong-counter {

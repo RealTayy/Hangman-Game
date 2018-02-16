@@ -13,12 +13,12 @@ let hangManGame = {
         console.log('All Variables reset!')
     },
 
-    genDogName: function () {        
+    genDogName: function () {
         let dogList = ['yorkshire_terrier', 'maltese', 'papillon', 'bulldog', 'labrador_retriever', 'german_shepherd', 'chihuahua', 'siberian_husky', 'poodle', 'golden_retriever'];
         return dogList[Math.floor(Math.random() * 10)];
     },
 
-    genDogHint: function (dogName) {        
+    genDogHint: function (dogName) {
         let dogHints = {
             yorkshire_terrier: 'This dog\'s orgins started in Yorkshire, England',
             maltese: 'This dog\'s name comes from the mediterranean island of Malta',
@@ -37,12 +37,14 @@ let hangManGame = {
 
 function startHangManGame() {
     hangManGame.resetVariables();
-    // Draw Starting Screen?
+    helpMessage = document.getElementById('help-msg');
+    helpMessage.innerHTML = "Alright let's get started! Guess a letter and I'll see if it's in my word..."
+    drawEverything();
     document.onkeypress = (e) => {
         if (!hangManGame.hasWonOrLost) {
             // Player tries to guess a letter
             if (hangManGame.guessedLetters.includes(e.key)) {
-                document.getElementById('help-msg').innerHTML = '\'' + e.key + '\' has already been guessed. Try a different Letter!';
+                helpMessage.innerHTML = '\'' + e.key + '\' has already been guessed. Try a different Letter!';
                 console.log('Letter already guessed brah...');
             } else {
                 hangManGame.guessedLetters.push(e.key);
@@ -50,29 +52,32 @@ function startHangManGame() {
                 console.log(hangManGame.guessedLetters);
                 if (hangManGame.correctLetters.includes(e.key)) {
                     console.log('You guessed correctly');
-                    document.getElementById('help-msg').innerHTML = 'Nice! \'' + e.key + '\' is in the word!' ;
+                    helpMessage.innerHTML = 'Nice! \'' + e.key + '\' is in the word!';
                 } else {
                     hangManGame.incorrectGuesses++
                     console.log('You guessed incorrectly: ' + hangManGame.incorrectGuesses);
-                    document.getElementById('help-msg').innerHTML = '\'' + e.key + '\' is not a correct letter :('
+                    helpMessage.innerHTML = '\'' + e.key + '\' is not a correct letter :('
                 }
             }
             if (checkIfWon()) {
                 console.log('GAME HAS BEEN WON');
                 hangManGame.hasWonOrLost = true;
                 hangManGame.winCounter++;
+                helpMessage.innerHTML = 'You WON! You did it! You guessed the correct word!';
                 // Draw Win Screen
             } else if (checkIfLost()) {
                 console.log('GAME HAS BEEN LOST');
                 hangManGame.hasWonOrLost = true;
                 hangManGame.loseCounter++;
+                helpMessage.innerHTML = 'Oh no! You lost... The correct word was ' + hangManGame.curDog;
                 // Draw Lose Screen
             } else {
                 console.log('Game goes on...');
             }
+            drawEverything();
         } else {
-            document.getElementById('help-msg').innerHTML = 'This game is already over... click "Start New Game" to play again!'
-        }
+            helpMessage = 'This game is already over... click "Start New Game" to play again!'
+        };
     };
 
     function checkIfWon() {
@@ -84,7 +89,51 @@ function startHangManGame() {
     function checkIfLost() {
         return hangManGame.incorrectGuesses > 6;
     };
-}
+
+    function drawEverything() {
+        drawGuessedLetters();
+        drawGuessCounter();
+        drawHint();
+        drawWord();
+        drawWinLose();
+    };
+
+    function drawGuessedLetters() {
+        document.getElementById('guessed-arr').innerHTML = '';
+        for (let i = 1; i < hangManGame.guessedLetters.length; i++) {
+            document.getElementById('guessed-arr').innerHTML += hangManGame.guessedLetters[i] + ' ';
+        }
+    };
+
+    function drawGuessCounter() {
+        document.getElementById('wrong-counter').innerHTML = "Wrong Guesses Left: " + (7 - hangManGame.incorrectGuesses);
+    };
+
+    function drawHint() {
+        document.getElementById('hint').innerHTML = "Hint: " + hangManGame.genDogHint(hangManGame.curDog);
+    };
+
+    function drawWord() {
+        let dogName = hangManGame.curDog;
+        let word = document.getElementById('word-blanks');
+        word.innerHTML = '';
+        for (let i = 0; i < dogName.length; i++) {
+            if (dogName.charAt(i) == '_') {                
+                word.innerHTML += "\xa0\xa0\xa0";
+            } else if (hangManGame.guessedLetters.includes(dogName.charAt(i))) {
+                word.innerHTML += (dogName.charAt(i) + " ").toUpperCase();
+            } else {
+                word.innerHTML += "_ ";
+            }
+        };
+    };
+
+    function drawWinLose() {
+        document.getElementById('win-counter').innerHTML = "Win: " + hangManGame.winCounter;
+        document.getElementById('lose-counter').innerHTML = "Lose: " + hangManGame.loseCounter;
+
+    };
+};
 
 // This makes the Start Button start a new game
 document.getElementById("start-button").addEventListener('click', startHangManGame);
